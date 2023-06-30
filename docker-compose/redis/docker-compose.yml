@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  redis:
+    image: redis:5
+    container_name: redis5
+    restart: always
+    ports:
+      - '6379:6379'
+    command: ['redis-server', '/usr/local/etc/redis/redis.conf']
+    volumes:
+      - './data:/data'
+      - './conf:/usr/local/etc/redis'
+    network_mode: "bridge"
